@@ -1,6 +1,6 @@
 # Introduction
 
-RHex is a bio-inspired, hexapedal robot designed for locomotion in rough terrain. It can drive over rocks, mud, sand, snow, and railroad tracks. ARHex adds an arm to this configuration, hence the name.
+RHex is a bio-inspired, hexapedal robot designed for locomotion in rough terrain. It can drive over rocks, mud, sand, snow, and railroad tracks. ARHex adds an arm to this configuration, hence the name..
 
 ![alt text](https://raw.githubusercontent.com/svaichu/ARHex/master/media/ARHex.png)
 <p align="center">illustration of ARHex</p>
