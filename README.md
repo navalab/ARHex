@@ -16,7 +16,7 @@ Visit the [channel](https://www.youtube.com/channel/UCnfsN-BSJe98hWcyonWuqLw) fo
 
 To run the package you need the following installed and configured.
 * ROS Melodic Morenia
-* Gazebo-9
+* Gazebo - 9
 
 ## Installing
 
