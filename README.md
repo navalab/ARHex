@@ -53,7 +53,8 @@ rosrun arhex_control arhex_control.py
 
 - [x] Model Base and legs
 - [x] Implement simple walking gait
-- [ ] Attach arm and endeffector
+- [x] Attach arm and endeffector
+- [ ] Write hardware_driver
 
 ## Authors
 
