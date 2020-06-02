@@ -4,6 +4,7 @@
     <arg name="world_name" value="$(find arhex_gazebo)/worlds/arhex.world"/>
     <!-- more default parameters can be changed here -->
   </include>
-  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-file $(find arhex_description)/urdf/arhex.urdf -urdf -z 1 -model arhex" />
-  <param name="robot_description" textfile="$(find arhex_description)/urdf/arhex.urdf"/>
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-file $(find arhex_description)/urdf/arhex.xacro -urdf -z 1 -model arhex" />
+<param command="$(find xacro)/xacro $(find arhex_description)/urdf/arhex.xacro" name="robot_description"/>
+  <!--rosparam file="$(find arhex_gazebo)/config/gazebo_ros_control_params.yaml" ns="/arhex" command="load"/-->
 </launch>

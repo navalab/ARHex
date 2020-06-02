@@ -1,0 +1,109 @@
+<?xml version="1.0" ?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="arhex">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="robot_arm">
+        <joint name="shoulder_1" />
+        <joint name="shoulder_2" />
+        <joint name="elbow" />
+        <joint name="wrist_1" />
+        <joint name="wrist_2" />
+        <joint name="wrist_3" />
+        <joint name="torso" />
+        <chain base_link="torso_1" tip_link="palm_1" />
+    </group>
+    <group name="endeffector">
+        <link name="right_endeffector_1" />
+        <link name="left_endeffector_1" />
+        <joint name="ef_1" />
+        <joint name="ef_2" />
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="home" group="robot_arm">
+        <joint name="torso" value="0"/>
+        <joint name="elbow" value="0" />
+        <joint name="shoulder_1" value="0" />
+        <joint name="shoulder_2" value="0" />
+        <joint name="wrist_1" value="0" />
+        <joint name="wrist_2" value="0" />
+        <joint name="wrist_3" value="0" />
+    </group_state>
+    <group_state name="rest" group="robot_arm">
+        <joint name="elbow" value="-3.0374" />
+        <joint name="shoulder_1" value="0" />
+        <joint name="shoulder_2" value="0" />
+        <joint name="torso" value="-1.5707" />
+        <joint name="wrist_1" value="0" />
+        <joint name="wrist_2" value="0" />
+        <joint name="wrist_3" value="0" />
+    </group_state>
+    <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
+    <end_effector name="gripper" parent_link="wrist_2_1" group="endeffector" parent_group="robot_arm" />
+    <!--PASSIVE JOINT: Purpose: this element is used to mark joints that are not actuated-->
+    <passive_joint name="L_FL" />
+    <passive_joint name="L_FR" />
+    <passive_joint name="L_ML" />
+    <passive_joint name="L_MR" />
+    <passive_joint name="L_RL" />
+    <passive_joint name="L_RR" />
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="base_link" link2="leg_FL_1" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="leg_FR_1" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="leg_ML_1" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="leg_MR_1" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="leg_RL_1" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="leg_RR_1" reason="Adjacent" />
+    <disable_collisions link1="base_link" link2="shoulder_1" reason="Never" />
+    <disable_collisions link1="base_link" link2="torso_1" reason="Adjacent" />
+    <disable_collisions link1="forearm_1" link2="left_endeffector_1" reason="Never" />
+    <disable_collisions link1="forearm_1" link2="palm_1" reason="Never" />
+    <disable_collisions link1="forearm_1" link2="right_endeffector_1" reason="Never" />
+    <disable_collisions link1="forearm_1" link2="shoulder_1" reason="Never" />
+    <disable_collisions link1="forearm_1" link2="upperarm_1" reason="Adjacent" />
+    <disable_collisions link1="forearm_1" link2="wrist_1_1" reason="Adjacent" />
+    <disable_collisions link1="forearm_1" link2="wrist_2_1" reason="Never" />
+    <disable_collisions link1="left_endeffector_1" link2="palm_1" reason="Adjacent" />
+    <disable_collisions link1="left_endeffector_1" link2="right_endeffector_1" reason="Never" />
+    <disable_collisions link1="left_endeffector_1" link2="wrist_1_1" reason="Never" />
+    <disable_collisions link1="left_endeffector_1" link2="wrist_2_1" reason="Never" />
+    <disable_collisions link1="leg_FL_1" link2="leg_FR_1" reason="Never" />
+    <disable_collisions link1="leg_FL_1" link2="leg_MR_1" reason="Never" />
+    <disable_collisions link1="leg_FL_1" link2="leg_RL_1" reason="Never" />
+    <disable_collisions link1="leg_FL_1" link2="leg_RR_1" reason="Never" />
+    <disable_collisions link1="leg_FL_1" link2="shoulder_1" reason="Never" />
+    <disable_collisions link1="leg_FL_1" link2="torso_1" reason="Never" />
+    <disable_collisions link1="leg_FR_1" link2="leg_ML_1" reason="Never" />
+    <disable_collisions link1="leg_FR_1" link2="leg_RL_1" reason="Never" />
+    <disable_collisions link1="leg_FR_1" link2="leg_RR_1" reason="Never" />
+    <disable_collisions link1="leg_FR_1" link2="shoulder_1" reason="Never" />
+    <disable_collisions link1="leg_FR_1" link2="torso_1" reason="Never" />
+    <disable_collisions link1="leg_ML_1" link2="leg_MR_1" reason="Never" />
+    <disable_collisions link1="leg_ML_1" link2="leg_RR_1" reason="Never" />
+    <disable_collisions link1="leg_ML_1" link2="shoulder_1" reason="Never" />
+    <disable_collisions link1="leg_ML_1" link2="torso_1" reason="Never" />
+    <disable_collisions link1="leg_MR_1" link2="leg_RL_1" reason="Never" />
+    <disable_collisions link1="leg_MR_1" link2="shoulder_1" reason="Never" />
+    <disable_collisions link1="leg_MR_1" link2="torso_1" reason="Never" />
+    <disable_collisions link1="leg_RL_1" link2="leg_RR_1" reason="Never" />
+    <disable_collisions link1="leg_RL_1" link2="shoulder_1" reason="Never" />
+    <disable_collisions link1="leg_RL_1" link2="torso_1" reason="Never" />
+    <disable_collisions link1="leg_RR_1" link2="shoulder_1" reason="Never" />
+    <disable_collisions link1="leg_RR_1" link2="torso_1" reason="Never" />
+    <disable_collisions link1="palm_1" link2="right_endeffector_1" reason="Adjacent" />
+    <disable_collisions link1="palm_1" link2="wrist_1_1" reason="Never" />
+    <disable_collisions link1="palm_1" link2="wrist_2_1" reason="Adjacent" />
+    <disable_collisions link1="right_endeffector_1" link2="wrist_1_1" reason="Never" />
+    <disable_collisions link1="right_endeffector_1" link2="wrist_2_1" reason="Never" />
+    <disable_collisions link1="shoulder_1" link2="torso_1" reason="Adjacent" />
+    <disable_collisions link1="shoulder_1" link2="upperarm_1" reason="Adjacent" />
+    <disable_collisions link1="shoulder_1" link2="wrist_1_1" reason="Never" />
+    <disable_collisions link1="torso_1" link2="upperarm_1" reason="Never" />
+    <disable_collisions link1="wrist_1_1" link2="wrist_2_1" reason="Adjacent" />
+</robot>

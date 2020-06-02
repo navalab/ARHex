@@ -1,0 +1,17 @@
+controller_list:
+  - name: fake_robot_arm_controller
+    joints:
+      - torso
+      - shoulder_1
+      - shoulder_2
+      - elbow
+      - wrist_1
+      - wrist_2
+      - wrist_3
+  - name: fake_endeffector_controller
+    joints:
+      - ef_1
+      - ef_2
+initial:  # Define initial robot poses.
+  - group: robot_arm
+    pose: home

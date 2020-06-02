@@ -1,0 +1,67 @@
+arhex:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Position Controllers --------------------------------------
+  torso_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: torso
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  shoulder_1_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: shoulder_1
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  shoulder_2_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: shoulder_2
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  elbow_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: elbow
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  wrist_1_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: wrist_1
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  wrist_2_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: wrist_2
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  wrist_3_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: wrist_3
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  ef_1_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: ef_1
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  ef_2_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: ef_2
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  L_FR_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: L_FR
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  L_MR_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: L_MR
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  L_RR_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: L_RR
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  L_RL_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: L_RL
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  L_ML_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: L_ML
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  L_FL_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: L_FL
+    pid: {p: 100.0, i: 0.01, d: 10.0}

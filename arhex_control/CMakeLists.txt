@@ -105,7 +105,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES arhex_control
-#  CATKIN_DEPENDS controller_manager joint_state_controller robot_state_publisher
+#  CATKIN_DEPENDS controller_manager joint_state_controller robot_state_publisher teleop_twist_keyboard
 #  DEPENDS system_lib
 )
 

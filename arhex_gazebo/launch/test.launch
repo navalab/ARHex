@@ -1,0 +1,21 @@
+<!-- <launch>
+
+  <arg name="model" default="$(find arhex_description)/urdf/test.urdf"/>
+  <arg name="gui" default="true" />
+  <arg name="rvizconfig" default="$(find urdf_tutorial)/rviz/urdf.rviz" />
+
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+
+</launch> -->
+<launch>
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find arhex_gazebo)/worlds/arhex.world"/>
+    <!-- more default parameters can be changed here -->
+  </include>
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-file $(find arhex_description)/urdf/test.urdf -urdf -z 1 -model arhex" />
+  <param name="robot_description" textfile="$(find arhex_description)/urdf/test.urdf"/>
+  <!--rosparam file="$(find arhex_gazebo)/config/gazebo_ros_control_params.yaml" ns="/arhex" command="load"/-->
+</launch>

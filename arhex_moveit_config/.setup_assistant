@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: arhex_description
+    relative_path: urdf/arhex.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/arhex.srdf
+  CONFIG:
+    author_name: Vaishnava Hari
+    author_email: vaishnavahari@gmail.com
+    generated_timestamp: 1590924521
