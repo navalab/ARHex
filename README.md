@@ -26,7 +26,7 @@ Navigate to `~/catkin_ws/src` your catkin_workspace.
 
 Clone the repository
 ```
-git clone https://github.com/svaichu/ARHex.git
+git clone https://github.com/navalab/ARHex.git
 ```
 And build the catkin_workspace
 ```
